@@ -72,6 +72,7 @@ function init() {
   camera.updateProjectionMatrix();
 
   window.addEventListener( 'resize', onWindowResize, false );
+  threePointLight();
 
   var loader = new THREE.OBJMTLLoader();
   loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
@@ -80,7 +81,6 @@ function init() {
 //    object.scale.y = 0.3
 //    object.scale.z = 0.3
     scene.add(object);
-    threePointLight();
     render();
   });
   loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
@@ -88,7 +88,6 @@ function init() {
     object.position.x = 800;
     object.position.z = 400;
     magicObj = object
-    scene.add(object);
     render();
   });
 
@@ -98,18 +97,15 @@ function init() {
 var magicObj = null;
 init();
 
-var bool = true;
-function toggleObj() {
-  if(bool) {
-    bool = false
-    scene.remove(magicObj)
-  } else {
-    bool = true
+function toggleObj(show) {
+  if(show) {
     scene.add(magicObj)
+  } else {
+    scene.remove(magicObj)
   }
   render();
 }
 
-document.getElementById('magicBtn').onclick = function() {
-  toggleObj()
-};
+$("body").on( "custom", function( event, param1, param2 ) {
+  toggleObj(param1)
+});
