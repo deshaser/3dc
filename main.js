@@ -83,33 +83,7 @@ function init() {
     threePointLight();
     render();
   });
-  loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
-    object.position.y = 100;
-    object.position.x = 800;
-    object.position.z = 400;
-    magicObj = object
-    scene.add(object);
-    render();
-  });
-
 
 }
 
-var magicObj = null;
 init();
-
-var bool = true;
-function toggleObj() {
-  if(bool) {
-    bool = false
-    scene.remove(magicObj)
-  } else {
-    bool = true
-    scene.add(magicObj)
-  }
-  render();
-}
-
-document.getElementById('magicBtn').onclick = function() {
-  toggleObj()
-};
