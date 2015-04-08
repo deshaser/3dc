@@ -4,9 +4,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var container, scene, camera, renderer;
 
 function render() {
-
   renderer.render( scene, camera );
-
+  $('body').trigger( "loaded");
 }
 
 function threePointLight() {
@@ -88,7 +87,7 @@ function init() {
     object.position.x = 800;
     object.position.z = 400;
     magicObj = object
-    render();
+//    render();
   });
 
 
