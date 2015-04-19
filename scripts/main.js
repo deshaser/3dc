@@ -49,7 +49,7 @@ function init() {
   scene = new THREE.Scene();
 
   // Change steps on grid
-  scene.add( new THREE.GridHelper( 3000, 200 ) );
+  scene.add( new THREE.GridHelper( 200, 10 ) );
   container = document.getElementById('container');
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true	} );
@@ -62,9 +62,9 @@ function init() {
   camera = new THREE.PerspectiveCamera( 60, aspect, 0.01, 17500 );
   orbit = new THREE.OrbitControls( camera, container );
   orbit.addEventListener( 'change', render );
-  camera.position.z = -4000;
-  camera.position.x = 4000;
-  camera.position.y = 4000;
+  camera.position.z = 200;
+  camera.position.x = -200;
+  camera.position.y = 200;
   var target = new THREE.Vector3( 0, 1, 0 );
   camera.lookAt( target );
   orbit.target = target;
@@ -75,17 +75,13 @@ function init() {
 
   var loader = new THREE.OBJMTLLoader();
   loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
-    object.position.y = 400;
-//    object.scale.x = 0.3
-//    object.scale.y = 0.3
-//    object.scale.z = 0.3
     scene.add(object);
     render();
   });
   loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
-    object.position.y = 100;
-    object.position.x = 800;
-    object.position.z = 400;
+    object.position.y = -5;
+    object.position.x = -30;
+    object.position.z = -20;
     magicObj = object
 //    render();
   });
