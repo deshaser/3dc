@@ -10,12 +10,38 @@
 
         <div id="container"></div>
         <div id="sidebar">
-            <ul>
-                <li>
+            <ul class="details">
+                <li class="detail">
                     <label>
                         <span>Second boat</span>
-                        <input type="checkbox" />
+                        <!--<input type="checkbox" />-->
                     </label>
+                </li>
+                <li class="detail active">
+                    <label>
+                        <span>Helm</span>
+                        <!--<input type="checkbox" />-->
+                    </label>
+                </li>
+                <li class="detail checkbox show">
+                    <label>
+                        <span>Checkbox</span>
+                        <!--<input type="checkbox" />-->
+                    </label>
+                    <ul class="mods">
+                        <li class="mod">
+                            <input type="checkbox" />
+                            Center
+                        </li>
+                        <li class="mod">
+                            <input type="checkbox" />
+                            Left
+                        </li>
+                        <li class="mod">
+                            <input type="checkbox" />
+                            Right
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -33,6 +59,7 @@
         <script src="libs/threejs/MTLLoader.js"></script>
         <script src="libs/threejs/OBJLoader.js"></script>
         <script src="libs/threejs/OBJMTLLoader.js"></script>
+        <script src="libs/threejs/DDSLoader.js"></script>
         <script src="libs/threejs/OrbitControls.js"></script>
 
         <script src="scripts/main.js"></script>

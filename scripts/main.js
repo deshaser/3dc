@@ -9,39 +9,19 @@ function render() {
 }
 
 function threePointLight() {
-
-  var directionalLight = new THREE.DirectionalLight( 0xb8b8b8 );
-  directionalLight.position.set(1, 1, 1).normalize();
-  directionalLight.intensity = 1.0;
-  scene.add( directionalLight );
-
-  directionalLight = new THREE.DirectionalLight( 0xFFFFFF );
-  directionalLight.position.set(-1, 0.6, 0.5).normalize();
-  directionalLight.intensity = 0.5;
-  scene.add(directionalLight);
-
-  directionalLight = new THREE.DirectionalLight();
-  directionalLight.position.set(-0.3, 0.6, -0.8).normalize( 0xE91111 );
-  directionalLight.intensity = 0.45;
-  scene.add(directionalLight);
-
-}
-
-function setupScene( result ) {
-  scene = result;
-  scene.add( new THREE.GridHelper( 10, 2.5 ) );
-  threePointLight();
-  render();
+  var HemisphereLight = new THREE.HemisphereLight( 0x444444, 0xFEFFEA, 0.5 );
+  scene.add( HemisphereLight );
+  var directionalLight = new THREE.DirectionalLight( 0xAAAAAA );
+  directionalLight.intensity = 1.2;
+  camera.add(directionalLight)
+  scene.add(camera);
 }
 
 function onWindowResize() {
-
   camera.aspect = container.offsetWidth / container.offsetHeight;
   camera.updateProjectionMatrix();
-
   renderer.setSize( window.innerWidth, window.innerHeight );
   render();
-
 }
 
 function init() {
@@ -49,10 +29,10 @@ function init() {
   scene = new THREE.Scene();
 
   // Change steps on grid
-  scene.add( new THREE.GridHelper( 200, 10 ) );
+//  scene.add( new THREE.GridHelper( 200, 10 ) );
   container = document.getElementById('container');
 
-  renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true	} );
+  renderer = new THREE.WebGLRenderer( { antialias: false, alpha: true	} );
   renderer.setClearColor( 0x000000, 0 );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
@@ -73,20 +53,14 @@ function init() {
   window.addEventListener( 'resize', onWindowResize, false );
   threePointLight();
 
-  var loader = new THREE.OBJMTLLoader();
-  loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
+//  THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+
+  var OBJMTLLoader = new THREE.OBJMTLLoader();
+  OBJMTLLoader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
     scene.add(object);
+    object.position.z = 30;
     render();
   });
-  loader.load( 'src/boat.obj', 'src/boat.mtl', function ( object ) {
-    object.position.y = -5;
-    object.position.x = -30;
-    object.position.z = -20;
-    magicObj = object
-//    render();
-  });
-
-
 }
 
 var magicObj = null;
