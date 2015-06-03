@@ -1,69 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Boats 3D constructor</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
+  <head>
+    <title>Boats ‒ 3D constructor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body id="body">
 
-        <div id="container"></div>
-        <div id="sidebar">
-            <ul class="details">
-                <li class="detail">
-                    <label>
-                        <span>Second boat</span>
-                        <!--<input type="checkbox" />-->
-                    </label>
-                </li>
-                <li class="detail active">
-                    <label>
-                        <span>Helm</span>
-                        <!--<input type="checkbox" />-->
-                    </label>
-                </li>
-                <li class="detail checkbox show">
-                    <label>
-                        <span>Checkbox</span>
-                        <!--<input type="checkbox" />-->
-                    </label>
-                    <ul class="mods">
-                        <li class="mod">
-                            <input type="checkbox" />
-                            Center
-                        </li>
-                        <li class="mod">
-                            <input type="checkbox" />
-                            Left
-                        </li>
-                        <li class="mod">
-                            <input type="checkbox" />
-                            Right
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div id="loader">
-            <div class="loader_bg"></div>
-            <div class="loader_img">
-                <img src="img/loader.gif" />
-            </div>
-        </div>
+  <div id="container"></div>
 
-        <script src="libs/lodash.js"></script>
-        <script src="libs/jquery-2.1.3.min.js"></script>
-        <script src="libs/threejs/three.min.js"></script>
-        <script src="libs/threejs/Detector.js"></script>
-        <script src="libs/threejs/MTLLoader.js"></script>
-        <script src="libs/threejs/OBJLoader.js"></script>
-        <script src="libs/threejs/OBJMTLLoader.js"></script>
-        <script src="libs/threejs/DDSLoader.js"></script>
-        <script src="libs/threejs/OrbitControls.js"></script>
+  <div id="loaderContainer">
+    <div class="loader_bg"></div>
+    <div class="loader_img">
+      <!--<img src="img/loader.gif" />-->
+      <canvas id="loader"></canvas>
+    </div>
+  </div>
 
-        <script src="scripts/main.js"></script>
-        <script src="scripts/sidebar.js"></script>
+  <script src="libs/lodash.js"></script>
+  <script src="libs/jquery-2.1.3.min.js"></script>
+  <script src="libs/gauge.min.js"></script>
+  <script src="libs/threejs/three.min.js"></script>
 
-    </body>
+  <script src="libs/threejs/Mirror.js"></script>
+  <script src="libs/threejs/WaterShader.js"></script>
+
+  <script src="libs/threejs/Detector.js"></script>
+  <script src="libs/threejs/OrbitControls.js"></script>
+  <script src="libs/threejs/MTLLoader.js"></script>
+  <script src="libs/threejs/OBJLoader.js"></script>
+  <script src="libs/threejs/OBJMTLLoader.js"></script>
+  <script src="libs/threejs/DDSLoader.js"></script>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/model.js"></script>
+  <script src="scripts/sidebar.js"></script>
+
+  </body>
 </html>
