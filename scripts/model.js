@@ -180,9 +180,9 @@
 
   function initObjects() {
     var OBJMTLLoader = new THREE.OBJMTLLoader();
-    OBJMTLLoader.load('src/boat.obj', 'src/boat.mtl', function (object) {
+    OBJMTLLoader.load('src/boat.obj?1', 'src/boat.mtl?1', function (object) {
       events.progress(100);
-      object.position.z = 30;
+      object.position.y = 15;
       scene.add(object);
       animate();
 
