@@ -94,7 +94,7 @@
     scene.add(light);
 
     var directionalLight = new THREE.DirectionalLight(0xAAAAAA);
-    directionalLight.intensity = 1.2;
+    directionalLight.intensity = 0.2;
     camera.add(directionalLight)
 
   }
