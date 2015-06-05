@@ -94,7 +94,7 @@
     scene.add(light);
 
     var directionalLight = new THREE.DirectionalLight(0xAAAAAA);
-    directionalLight.intensity = 0.2;
+    directionalLight.intensity = 1.2;
     camera.add(directionalLight)
 
   }
@@ -182,7 +182,7 @@
     var OBJMTLLoader = new THREE.OBJMTLLoader();
     OBJMTLLoader.load('src/boat.obj?1', 'src/boat.mtl?1', function (object) {
       events.progress(100);
-      object.position.y = 15;
+      object.position.x = 30;
       scene.add(object);
       animate();
 
