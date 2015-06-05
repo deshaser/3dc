@@ -192,6 +192,127 @@
       }, 500);
 
     });
+
+    var details = [
+      {
+        src: 'interceptor',
+        position: {
+          y: 40,
+          z: 80
+        }
+      },
+      {
+        src: 'kosynka_na_tranec',
+        position: {
+          y: 40
+        }
+      },
+      {
+        src: 'liktros',
+        position: {
+          y: 40,
+          z: 120
+        }
+      },
+      {
+        src: 'mixer',
+        position: {
+          y: 40,
+          x: 150,
+          z: -100
+        }
+      },
+      {
+        src: 'org_snastey',
+        position: {
+          y: 40,
+          x: 20,
+          z: -100
+        }
+      },
+      {
+        src: 'ruchka',
+        position: {
+          y: 40,
+          z: -30
+        }
+      },
+      {
+        src: 'rul_kol_metl',
+        position: {
+          y: 40,
+          x: 40,
+          z: 20
+        }
+      },
+      {
+        src: 'rul_kol_plast',
+        position: {
+          y: 40,
+          x: -40,
+          z: 20
+        }
+      },
+      {
+        src: 'strahov_kol',
+        position: {
+          y: 40,
+          z: -40
+        }
+      },
+      {
+        src: 'ukb',
+        position: {
+          y: 40,
+          x: 40,
+          z: -40
+        }
+      },
+      {
+        src: 'usil_tranec',
+        position: {
+          y: 40,
+          x: -40,
+          z: -40
+        }
+      },
+      {
+        src: 'verevochka',
+        position: {
+          y: 40,
+          x: -40,
+          z: -90
+        }
+      },
+      {
+        src: 'veslo',
+        position: {
+          y: 40,
+          x: -20,
+          z: -40
+        }
+      },
+      {
+        src: 'yakorny_rym',
+        position: {
+          y: 40,
+          x: 20,
+          z: -40
+        }
+      }
+    ];
+
+    for (var i = 0; i < details.length; i++) {
+      (function(item) {
+        OBJMTLLoader.load('src/details/' + item.src + '.obj', 'src/details/' + item.src + '.mtl', function (object) {
+          object.position.x = item.position.x || 0;
+          object.position.y = item.position.y || 0;
+          object.position.z = item.position.z || 0;
+          scene.add(object);
+        });
+      }(details[i]));
+    }
+
   }
 
   function animate() {
