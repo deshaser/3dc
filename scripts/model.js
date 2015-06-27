@@ -180,7 +180,7 @@
 
   function initObjects() {
     var OBJMTLLoader = new THREE.OBJMTLLoader();
-    OBJMTLLoader.load('src/boat.obj?2', 'src/boat.mtl?2', function (object) {
+    OBJMTLLoader.load('src/boat.obj?7', 'src/boat.mtl?7', function (object) {
       events.progress(100);
       object.position.y = 20;
       scene.add(object);
@@ -309,16 +309,16 @@
       }
     ];
 
-    for (var i = 0; i < details.length; i++) {
-      (function(item) {
-        OBJMTLLoader.load('src/details/' + item.src + '.obj', 'src/details/' + item.src + '.mtl', function (object) {
-          object.position.x = item.position.x || 0;
-          object.position.y = item.position.y || 0;
-          object.position.z = item.position.z || 0;
-          scene.add(object);
-        });
-      }(details[i]));
-    }
+    //for (var i = 0; i < details.length; i++) {
+    //  (function(item) {
+    //    OBJMTLLoader.load('src/details/' + item.src + '.obj', 'src/details/' + item.src + '.mtl', function (object) {
+    //      object.position.x = item.position.x || 0;
+    //      object.position.y = item.position.y || 0;
+    //      object.position.z = item.position.z || 0;
+    //      scene.add(object);
+    //    });
+    //  }(details[i]));
+    //}
 
   }
 
