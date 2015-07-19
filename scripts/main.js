@@ -9,8 +9,11 @@ var gauge = new Donut(target).setOptions(opts);
 gauge.maxValue = 100;
 gauge.animationSpeed = 30;
 gauge.set(20);
-
+var scene;
+var OBJMTLLoader = new THREE.OBJMTLLoader();
+var Sidebar;
 
 $("body").on("loaded", function() {
   $('#loaderContainer').fadeOut(500);
+  Sidebar.init();
 });
