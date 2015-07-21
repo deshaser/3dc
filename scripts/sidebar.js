@@ -3,6 +3,8 @@
     Sidebar = {
 
         wrap : $('#sidebar ul'),
+
+        visible : [],
         
         details : {
            'interceptor' : {
@@ -135,6 +137,7 @@
             else{
                 item.object.visible = true;
             }
+            this.visible.push(item.src);
         },
 
         build : function(){
@@ -144,7 +147,7 @@
                 {
                     var el = this.details[item];
                     var type = el.type || 'checkbox';
-                    el.node = $('<li><input class="'+ el.src +'" data-el="'+ el.src +'" type="'+ type +'">'+el.src+'</li>').appendTo(this.wrap);
+                    el.node = $('<li><label><input class="'+ el.src +'" data-el="'+ el.src +'" type="'+ type +'">'+el.src+'</label></li>').appendTo(this.wrap);
                 }
             }
             
@@ -155,18 +158,29 @@
             var self = this;
             console.log('init');
             self.build();
-            $('#sidebar input').on('change',function(){
+            
+            if(document.URL.search('extra=1') > -1)
+            {
+                
+            }
+            self.wrap.find('input:checkbox').on('change',function(){
+                var el = self.details[$(this).data('el')]
                 if ($(this).is(':checked')){
-                    self.load(self.details[$(this).data('el')]);
+                    self.load(el);
                 }
                 else{
-                    if(self.details[$(this).data('el')].object){
-                        self.details[$(this).data('el')].object.visible = false;
+                    if(el.object){
+                        el.object.visible = false;
+                        self.visible.splice(self.visible.indexOf(el.src), 1);
                     }
                     else{
                         console.log('smth went wrong');
                     }
                 }
+            })
+            
+            $('.build-url').on('click',function(){
+                console.log(document.location + '?extra=1&' + self.visible.join('=1&') + '=1');
             })
             
         }
