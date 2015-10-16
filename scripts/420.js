@@ -59,7 +59,7 @@
     interval = setInterval(function() {
       i++;
       events.progress(i);
-    }, 100);
+    }, 1000);
 
     window.addEventListener('resize', onWindowResize, false);
 
