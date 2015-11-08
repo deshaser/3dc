@@ -187,19 +187,143 @@
 
   function initObjects() {
     OBJMTLLoader.load('src/420.obj?1', 'src/420.mtl?1', function (object) {
-      clearInterval(interval);
-      events.progress(100);
       object.position.y = 10;
       scene.add(object);
+    });
+
+    //Уключины
+    OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
+      object.position.y = 19;
+      object.position.x = 0;
+      object.position.z = -24;
+      object.rotation.x = -0.5;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
+      object.position.y = 19;
+      object.position.x = 0;
+      object.position.z = 24;
+      object.rotation.x = 0.5;
+      scene.add(object);
+    });
+
+    //Ручки
+    //Передние ручки
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      var ry = new THREE.Vector3(0, 1, 0),
+          rx = new THREE.Vector3(1, 0, 0);
+      object.position.y = 10;
+      object.position.x = -55;
+      object.position.z = 10;
+      object.rotateOnAxis(ry, 1.5708);
+      object.rotateOnAxis(rx, -2);
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      var ry = new THREE.Vector3(0, 1, 0),
+          rx = new THREE.Vector3(1, 0, 0);
+      events.progress(33);
+      object.position.y = 10;
+      object.position.x = -55;
+      object.position.z = -10;
+      object.rotateOnAxis(ry, 1.5708);
+      object.rotateOnAxis(rx, -2);
+      scene.add(object);
+    });
+
+    //Центральные ручки
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      object.position.y = 18.3;
+      object.position.x = 10;
+      object.position.z = -21;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      object.position.y = 18.3;
+      object.position.x = 10;
+      object.position.z = 21;
+      scene.add(object);
+    });
+
+    //Задние ручки
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      object.position.y = 13.5;
+      object.position.x = 52;
+      object.position.z = -18.2;
+      object.rotation.x = 1.57;
+      object.rotation.z = -0.55;
+      object.scale.x = 0.9;
+      object.scale.y = 0.9;
+      object.scale.z = 0.9;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+      object.position.y = 13.5;
+      object.position.x = 52;
+      object.position.z = 18.2;
+      object.rotation.x = -1.57;
+      object.rotation.z = -0.55;
+      object.scale.x = 0.9;
+      object.scale.y = 0.9;
+      object.scale.z = 0.9;
+      scene.add(object);
+    });
+
+    //Веревки
+    OBJMTLLoader.load('src/details/ver.obj', 'src/details/ver.mtl', function(object) {
+      object.position.y = 17.8;
+      object.position.x = -35;
+      object.position.z = -21;
+      object.rotation.x = -0.5;
+      object.rotation.z = 0.02;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/ver.obj', 'src/details/ver.mtl', function(object) {
+      object.position.y = 17.8;
+      object.position.x = -35;
+      object.position.z = 21;
+      object.rotation.x = -0.5;
+      object.rotation.y = -0.03;
+      object.rotation.z = 0.02;
+      scene.add(object);
+    });
+
+    //Клапаны
+    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+      object.position.y = 12;
+      object.position.x = -38;
+      object.position.z = 8.2;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+      object.position.y = 13;
+      object.position.x = 35;
+      object.position.z = 11;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+      clearInterval(interval);
+      events.progress(100);
+      object.position.y = 15;
+      object.position.x = 34;
+      object.position.z = 15.5;
+      object.rotation.x = -1.5708;
+      scene.add(object);
+
       animate();
 
       setTimeout(function () {
         events.loaded.main();
         cameraAnimation();
       }, 500);
-
     });
-
 
   }
 
