@@ -102,12 +102,11 @@
 
     var directionalLight = new THREE.DirectionalLight(0xAAAAAA);
     directionalLight.intensity = 1.2;
-    camera.add(directionalLight)
+    camera.add(directionalLight);
 
   }
 
   function initWater() {
-
     var waterNormals = new THREE.ImageUtils.loadTexture('src/background/waternormals.jpg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 
@@ -130,7 +129,6 @@
     mirrorMesh.add(water);
     mirrorMesh.rotation.x = -Math.PI * 0.5;
     scene.add(mirrorMesh);
-
   }
 
   function initSkybox() {
@@ -192,19 +190,36 @@
     });
 
     //Уключины
-    OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
-      object.position.y = 19;
-      object.position.x = 0;
+    // OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
+    //   object.position.y = 19;
+    //   object.position.x = 0;
+    //   object.position.z = -24;
+    //   object.rotation.x = -0.5;
+    //   scene.add(object);
+    // });
+    //
+    // OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
+    //   object.position.y = 19;
+    //   object.position.x = 0;
+    //   object.position.z = 24;
+    //   object.rotation.x = 0.5;
+    //   scene.add(object);
+    // });
+
+    //Уключины
+    OBJMTLLoader.load('src/details/uklyuchina.obj', 'src/details/uklyuchina.mtl', function(object) {
+      object.position.y = 18.2;
+      object.position.x = -3;
       object.position.z = -24;
-      object.rotation.x = -0.5;
+      object.rotation.x = -0.6;
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
-      object.position.y = 19;
-      object.position.x = 0;
+    OBJMTLLoader.load('src/details/uklyuchina.obj', 'src/details/uklyuchina.mtl', function(object) {
+      object.position.y = 18.2;
+      object.position.x = -3;
       object.position.z = 24;
-      object.rotation.x = 0.5;
+      object.rotation.x = 0.6;
       scene.add(object);
     });
 
@@ -230,7 +245,7 @@
       object.position.z = -10;
       object.rotateOnAxis(ry, 1.5708);
       object.rotateOnAxis(rx, -2);
-      scene.add(object);
+       scene.add(object);
     });
 
     //Центральные ручки
