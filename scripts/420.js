@@ -1,5 +1,4 @@
 (function() {
-
   if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
   }
@@ -30,39 +29,26 @@
   init();
 
   function init() {
-
     initObjects();
-
     initRenderer();
-
     initContainer();
-
     initScene();
-
     initCamera();
-
     initControl();
-
     initLight();
-
     events.progress(40);
-
     initWater();
-
     events.progress(50);
-
     initSkybox();
+    events.progress(82);
 
-    events.progress(70);
-
-    var i = 70;
+    var i = 82;
     interval = setInterval(function() {
       i++;
       events.progress(i);
     }, 1000);
 
     window.addEventListener('resize', onWindowResize, false);
-
   }
 
   function initRenderer() {
@@ -164,8 +150,8 @@
 
     });
 
-    var cubeShader = THREE.ShaderLib['cube'];
-    cubeShader.uniforms['tCube'].value = cubeMap;
+    var cubeShader = THREE.ShaderLib.cube;
+    cubeShader.uniforms.tCube.value = cubeMap;
 
     var skyBoxMaterial = new THREE.ShaderMaterial({
       fragmentShader: cubeShader.fragmentShader,
@@ -189,43 +175,61 @@
       scene.add(object);
     });
 
-    //Уключины
-    // OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
-    //   object.position.y = 19;
-    //   object.position.x = 0;
-    //   object.position.z = -24;
-    //   object.rotation.x = -0.5;
-    //   scene.add(object);
-    // });
-    //
-    // OBJMTLLoader.load('src/details/veslo.obj', 'src/details/veslo.mtl', function(object) {
-    //   object.position.y = 19;
-    //   object.position.x = 0;
-    //   object.position.z = 24;
-    //   object.rotation.x = 0.5;
-    //   scene.add(object);
-    // });
-
-    //Уключины
-    OBJMTLLoader.load('src/details/uklyuchina.obj', 'src/details/uklyuchina.mtl', function(object) {
-      object.position.y = 18.2;
-      object.position.x = -3;
-      object.position.z = -24;
-      object.rotation.x = -0.6;
+    // Весла
+    OBJMTLLoader.load('src/details/veslo.obj?1', 'src/details/veslo.mtl?1', function(object) {
+      object.position.y = 18.5;
+      object.position.x = 2;
+      object.position.z = -25;
+      object.rotation.x = 2.2;
+      object.rotation.z = -0.05;
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/uklyuchina.obj', 'src/details/uklyuchina.mtl', function(object) {
+    OBJMTLLoader.load('src/details/veslo.obj?1', 'src/details/veslo.mtl?1', function(object) {
+      object.position.y = 18.5;
+      object.position.x = 2;
+      object.position.z = 24;
+      object.rotation.x = 0.1;
+      scene.add(object);
+    });
+
+    //Уключины
+    OBJMTLLoader.load('src/details/uklyuchina.obj?1', 'src/details/uklyuchina.mtl?1', function(object) {
       object.position.y = 18.2;
+      object.position.x = -5;
+      object.position.z = -25;
+      object.rotation.x = 0.2;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/uklyuchina.obj?1', 'src/details/uklyuchina.mtl?1', function(object) {
+      object.position.y = 18.2;
+      object.position.x = -5;
+      object.position.z = 24;
+      object.rotation.x = 0.2;
+      scene.add(object);
+    });
+
+    // Держатели для весел
+    OBJMTLLoader.load('src/details/derzhateli.obj?1', 'src/details/derzhateli.mtl?1', function(object) {
+      object.position.y = 18.3;
+      object.position.x = -3;
+      object.position.z = -24;
+      object.rotation.x = 0.1;
+      scene.add(object);
+    });
+
+    OBJMTLLoader.load('src/details/derzhateli.obj?1', 'src/details/derzhateli.mtl?1', function(object) {
+      object.position.y = 18.3;
       object.position.x = -3;
       object.position.z = 24;
-      object.rotation.x = 0.6;
+      object.rotation.x = 0.1;
       scene.add(object);
     });
 
     //Ручки
     //Передние ручки
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       var ry = new THREE.Vector3(0, 1, 0),
           rx = new THREE.Vector3(1, 0, 0);
       object.position.y = 10;
@@ -236,7 +240,7 @@
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       var ry = new THREE.Vector3(0, 1, 0),
           rx = new THREE.Vector3(1, 0, 0);
       events.progress(33);
@@ -249,14 +253,14 @@
     });
 
     //Центральные ручки
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       object.position.y = 18.3;
       object.position.x = 10;
       object.position.z = -21;
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       object.position.y = 18.3;
       object.position.x = 10;
       object.position.z = 21;
@@ -264,7 +268,7 @@
     });
 
     //Задние ручки
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       object.position.y = 13.5;
       object.position.x = 52;
       object.position.z = -18.2;
@@ -276,7 +280,7 @@
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/ruchka.obj', 'src/details/ruchka.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ruchka.obj?1', 'src/details/ruchka.mtl?1', function(object) {
       object.position.y = 13.5;
       object.position.x = 52;
       object.position.z = 18.2;
@@ -289,7 +293,7 @@
     });
 
     //Веревки
-    OBJMTLLoader.load('src/details/ver.obj', 'src/details/ver.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ver.obj?1', 'src/details/ver.mtl?1', function(object) {
       object.position.y = 17.8;
       object.position.x = -35;
       object.position.z = -21;
@@ -298,7 +302,7 @@
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/ver.obj', 'src/details/ver.mtl', function(object) {
+    OBJMTLLoader.load('src/details/ver.obj?1', 'src/details/ver.mtl?1', function(object) {
       object.position.y = 17.8;
       object.position.x = -35;
       object.position.z = 21;
@@ -309,21 +313,21 @@
     });
 
     //Клапаны
-    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+    OBJMTLLoader.load('src/details/klapan.obj?1', 'src/details/klapan.mtl?1', function(object) {
       object.position.y = 12;
       object.position.x = -38;
       object.position.z = 8.2;
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+    OBJMTLLoader.load('src/details/klapan.obj?1', 'src/details/klapan.mtl?1', function(object) {
       object.position.y = 13;
       object.position.x = 35;
       object.position.z = 11;
       scene.add(object);
     });
 
-    OBJMTLLoader.load('src/details/klapan.obj', 'src/details/klapan.mtl', function(object) {
+    OBJMTLLoader.load('src/details/klapan.obj?1', 'src/details/klapan.mtl?1', function(object) {
       clearInterval(interval);
       events.progress(100);
       object.position.y = 15;
@@ -336,10 +340,9 @@
 
       setTimeout(function () {
         events.loaded.main();
-        cameraAnimation();
-      }, 500);
+        //cameraAnimation();
+      }, 2500);
     });
-
   }
 
   function animate() {
@@ -348,19 +351,22 @@
   }
 
   function render() {
-    water.material.uniforms.time.value += 1 / 60;
+    if (water !== void 0) {
+      water.material.uniforms.time.value += 1 / 60;
+      water.render();
+    }
+
     control.update();
-    water.render();
+
     renderer.render(scene, camera);
   }
 
   function cameraAnimation() {
-
     var time = 0;
     var intervalID;
     intervalID = setInterval(function () {
       if (time > 3000) {
-        clearInterval(intervalID)
+        clearInterval(intervalID);
       } else {
         frame(time);
         time = time + 15;
