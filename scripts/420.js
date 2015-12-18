@@ -37,9 +37,9 @@
     initControl();
     initLight();
     events.progress(40);
-    //initWater();
+    initWater();
     events.progress(50);
-    //initSkybox();
+    initSkybox();
     events.progress(82);
 
     var i = 82;
@@ -215,7 +215,7 @@
       object.position.y = 18.3;
       object.position.x = -5;
       object.position.z = -24.2;
-      object.rotation.z = 0.01; //up down
+      object.rotation.z = 0.01;
       object.rotation.y = 0.02;
       object.rotation.x = -0.8;
       scene.add(object);
@@ -342,7 +342,7 @@
 
       setTimeout(function () {
         events.loaded.main();
-        //cameraAnimation();
+        cameraAnimation();
       }, 2500);
     });
   }
