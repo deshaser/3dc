@@ -37,9 +37,9 @@
     initControl();
     initLight();
     events.progress(40);
-    initWater();
+    //initWater();
     events.progress(50);
-    initSkybox();
+    //initSkybox();
     events.progress(82);
 
     var i = 82;
@@ -177,9 +177,9 @@
 
     // Весла
     OBJMTLLoader.load('src/details/veslo.obj?1', 'src/details/veslo.mtl?1', function(object) {
-      object.position.y = 18.5;
-      object.position.x = 2;
-      object.position.z = -25;
+      object.position.y = 18.3;
+      object.position.x = 2.4;
+      object.position.z = -24.5;
       object.rotation.x = 2.2;
       object.rotation.z = -0.05;
       scene.add(object);
@@ -195,10 +195,10 @@
 
     //Уключины
     OBJMTLLoader.load('src/details/uklyuchina.obj?1', 'src/details/uklyuchina.mtl?1', function(object) {
-      object.position.y = 18.2;
+      object.position.y = 18.1;
       object.position.x = -5;
-      object.position.z = -25;
-      object.rotation.x = 0.2;
+      object.position.z = -24;
+      object.rotation.x = -0.55;
       scene.add(object);
     });
 
@@ -213,9 +213,11 @@
     // Держатели для весел
     OBJMTLLoader.load('src/details/derzhateli.obj?1', 'src/details/derzhateli.mtl?1', function(object) {
       object.position.y = 18.3;
-      object.position.x = -3;
-      object.position.z = -24;
-      object.rotation.x = 0.1;
+      object.position.x = -5;
+      object.position.z = -24.2;
+      object.rotation.z = 0.01; //up down
+      object.rotation.y = 0.02;
+      object.rotation.x = -0.8;
       scene.add(object);
     });
 
@@ -355,9 +357,7 @@
       water.material.uniforms.time.value += 1 / 60;
       water.render();
     }
-
     control.update();
-
     renderer.render(scene, camera);
   }
 
