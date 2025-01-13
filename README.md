@@ -1,4 +1,4 @@
-# 3D boats visualization
+# 3D boats visualization [Three.js]
 
 Developments for the online store selling boats.
 
